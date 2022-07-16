@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { EnrollmentformComponent } from './enrollmentform/enrollmentform.component';
 import { StudentSignupComponent } from './student-signup/student-signup.component';
 import { StudentSigninComponent } from './student-signin/student-signin.component';
+import { EmployersearchComponent } from './employersearch/employersearch.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EnrollmentformComponent,
     StudentSignupComponent,
-    StudentSigninComponent
+    StudentSigninComponent,
+    EmployersearchComponent
   ],
   imports: [
     BrowserModule,
