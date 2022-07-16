@@ -17,6 +17,8 @@ import { CoursesComponent } from './courses/courses.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { FooterComponent } from './footer/footer.component';
+import { StudentSignupComponent } from './student-signup/student-signup.component';
+import { StudentSigninComponent } from './student-signin/student-signin.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { FooterComponent } from './footer/footer.component';
     ContactusComponent,
     HomeHeaderComponent,
     FooterComponent,
+    StudentSignupComponent,
+    StudentSigninComponent,
   ],
   imports: [
     BrowserModule,

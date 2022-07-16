@@ -13,6 +13,7 @@ const routes: Routes = [
   { path:'footer', component: FooterComponent },
   { path:'contactus', component: ContactusComponent },
   { path:'login', component: LoginComponent }
+
 ];
 
 @NgModule({
