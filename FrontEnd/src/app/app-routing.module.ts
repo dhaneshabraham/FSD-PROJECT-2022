@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { LoginComponent } from './login/login.component';
+import { EmployerLoginComponent } from './employer-login/employer-login.component';
 const routes: Routes = [
   {path: "registration", component: EnrollmentformComponent} ,
   { path:'', component: HomeComponent },
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path:'about', component: AboutComponent },
   { path:'footer', component: FooterComponent },
   { path:'contactus', component: ContactusComponent },
-  { path:'login', component: LoginComponent }
+  { path:'login', component: LoginComponent },
+  {path:'employerlogin', component: EmployerLoginComponent}
 ];
 
 @NgModule({

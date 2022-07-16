@@ -17,6 +17,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { FooterComponent } from './footer/footer.component';
+import { EmployerLoginComponent } from './employer-login/employer-login.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FooterComponent } from './footer/footer.component';
     ContactusComponent,
     HomeHeaderComponent,
     FooterComponent,
+    EmployerLoginComponent,
   ],
   imports: [
     BrowserModule,

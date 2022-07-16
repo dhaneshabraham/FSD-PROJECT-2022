@@ -6,3 +6,20 @@
 .example-spacer {
     flex: 1 1 auto;
   }
+
+  .dropdown button{
+    text-decoration: none;
+    border: none;
+    color:#ff4081;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  
+
+  .dropdown-menu a{
+    background: none;
+    color: #ff4081;
+    font-size: 20px;
+    font-weight: 500;
+  }

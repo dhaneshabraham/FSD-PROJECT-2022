@@ -13,7 +13,19 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <span [style.cursor]="'pointer'" routerLink="/contactus">Contact</span>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span [style.cursor]="'pointer'" routerLink="/login">Login</span>
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" [style.cursor]="'pointer'" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Login
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" routerLink="/login">Admin</a></li>
+            <li><a class="dropdown-item" routerLink="#">Student</a></li>
+            <li><a class="dropdown-item" routerLink="/employerlogin">Employer</a></li>
+          </ul>
+        </div>
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span [style.cursor]="'pointer'" routerLink="/registration">Register</span>
     </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
