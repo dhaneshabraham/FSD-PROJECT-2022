@@ -17,12 +17,8 @@ import { CoursesComponent } from './courses/courses.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { FooterComponent } from './footer/footer.component';
-<<<<<<< HEAD
 import { StudentSignupComponent } from './student-signup/student-signup.component';
-import { StudentSigninComponent } from './student-signin/student-signin.component';
-=======
-import { EmployerLoginComponent } from './employer-login/employer-login.component';
->>>>>>> 6cd038219f24468dd2e2bfccea573b2fe807ed33
+
 
 @NgModule({
   declarations: [
@@ -35,12 +31,7 @@ import { EmployerLoginComponent } from './employer-login/employer-login.componen
     ContactusComponent,
     HomeHeaderComponent,
     FooterComponent,
-<<<<<<< HEAD
-    StudentSignupComponent,
-    StudentSigninComponent,
-=======
-    EmployerLoginComponent,
->>>>>>> 6cd038219f24468dd2e2bfccea573b2fe807ed33
+    StudentSignupComponent
   ],
   imports: [
     BrowserModule,
