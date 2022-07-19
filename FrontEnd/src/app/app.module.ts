@@ -6,7 +6,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EnrollmentformComponent } from './enrollmentform/enrollmentform.component';
@@ -18,6 +18,9 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { FooterComponent } from './footer/footer.component';
 import { StudentSignupComponent } from './student-signup/student-signup.component';
+import { HttpClientModule } from '@angular/common/http';
+import { StudentLoginComponent } from './student-login/student-login.component';
+
 
 
 @NgModule({
@@ -31,7 +34,8 @@ import { StudentSignupComponent } from './student-signup/student-signup.componen
     ContactusComponent,
     HomeHeaderComponent,
     FooterComponent,
-    StudentSignupComponent
+    StudentSignupComponent,
+    StudentLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,9 @@ import { StudentSignupComponent } from './student-signup/student-signup.componen
     MatSidenavModule,
     MatListModule,
     BrowserAnimationsModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
