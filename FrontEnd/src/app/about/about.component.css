@@ -1,0 +1,15 @@
+.content{
+    padding:16px;
+}
+.content>mat-card{
+    width: 200px;
+}
+.aboutcard{
+    width: 50em;
+    height: 50em;
+}
+.pfont{
+    font-size: medium;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    -ms-text-kashida-space: 0%;
+}

@@ -3,10 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MatListModule } from '@angular/material/list';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { FormsModule } from '@angular/forms';
+import { MatCardModule} from '@angular/material/card';
+import { MatGridListModule} from '@angular/material/grid-list';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EnrollmentformComponent } from './enrollmentform/enrollmentform.component';
@@ -43,10 +46,13 @@ import { StudentLoginComponent } from './student-login/student-login.component';
     MatToolbarModule,
     MatIconModule,
     MatSidenavModule,
+    MatCardModule,
     MatListModule,
+    MatGridListModule,
     BrowserAnimationsModule,
     MatBottomSheetModule,
     FormsModule,
+    FlexLayoutModule,
     HttpClientModule
   ],
   providers: [],

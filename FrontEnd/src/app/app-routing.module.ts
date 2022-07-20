@@ -9,17 +9,18 @@ import { EmployerLoginComponent } from './employer-login/employer-login.componen
 import { StudentSignupComponent } from './student-signup/student-signup.component';
 import { StudentLoginComponent } from './student-login/student-login.component';
 
+import { CoursesComponent } from './courses/courses.component';
 const routes: Routes = [
-  {path: "registration", component: EnrollmentformComponent} ,
+  { path: "registration", component: EnrollmentformComponent} ,
   { path:'', component: HomeComponent },
   { path:'home', component: HomeComponent },
   { path:'about', component: AboutComponent },
   { path:'footer', component: FooterComponent },
   { path:'contactus', component: ContactusComponent },
   { path:'login', component: LoginComponent },
-  {path:'studentsignup',component:StudentSignupComponent},
-  {path:'studentlogin',component:StudentLoginComponent}
-
+  { path:'studentsignup',component:StudentSignupComponent},
+  { path:'studentlogin',component:StudentLoginComponent},
+  { path:'courses',component:CoursesComponent}
 ];
 
 @NgModule({
