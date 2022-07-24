@@ -1,30 +1,65 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { FormsModule } from '@angular/forms';
+import { MatCardModule} from '@angular/material/card';
+import { MatGridListModule} from '@angular/material/grid-list';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EnrollmentformComponent } from './enrollmentform/enrollmentform.component';
-import { StudentSigninComponent } from './student-signin/student-signin.component';
-import { EmployersearchComponent } from './employersearch/employersearch.component';
-import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { LoginComponent } from './login/login.component';
+import { CoursesComponent } from './courses/courses.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { HomeHeaderComponent } from './home-header/home-header.component';
+import { FooterComponent } from './footer/footer.component';
 import { StudentSignupComponent } from './student-signup/student-signup.component';
-import { Form } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { StudentLoginComponent } from './student-login/student-login.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCarouselModule } from 'ng-mat-carousel';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     EnrollmentformComponent,
-    StudentSigninComponent,
-    EmployersearchComponent,
     HomeComponent,
+    AboutComponent,
+    LoginComponent,
+    CoursesComponent,
+    ContactusComponent,
+    HomeHeaderComponent,
+    FooterComponent,
     StudentSignupComponent,
-    EmployersearchComponent
+    StudentLoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule,
-    HttpClientModule
+    AppRoutingModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatCardModule,
+    MatListModule,
+    MatGridListModule,
+    BrowserAnimationsModule,
+    MatBottomSheetModule,
+    FormsModule,
+    FlexLayoutModule,
+    MatFormFieldModule,
+    HttpClientModule,
+    MatInputModule,
+    MatCarouselModule.forRoot(),
+    MatCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

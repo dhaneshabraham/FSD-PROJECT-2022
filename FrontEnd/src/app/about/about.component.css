@@ -1,0 +1,40 @@
+.content{
+    padding:16px;
+}
+.content>mat-card{
+    width: 200px;
+}
+.aboutcard{
+    width: 50em;
+    height: 50em;
+}
+.pfont{
+    font-size: medium;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    -ms-text-kashida-space: 0%;
+}
+
+.carousel_div{
+    margin-left: 10%;
+    margin-right:10%;    
+    border:1px solid red;
+    border-radius:10px;
+    padding:10px;
+    background-color: lightcoral;
+}
+
+.carousel_head{
+    margin:10px;
+    text-align: center;
+    font-size: 3em;
+}
+
+
+
+div.carousel-indicators.ng-star-inserted {
+    transform: none !important;
+}
+
+button.mat-focus-indicator.mat-icon-button.mat-button-base.mat-accent.ng-star-inserted {
+    color: "#ff5240"
+}

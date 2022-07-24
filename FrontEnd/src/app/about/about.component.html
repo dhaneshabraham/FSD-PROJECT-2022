@@ -1,0 +1,135 @@
+<app-home-header></app-home-header>
+
+  <div class="content">
+      <div fxLayout="row wrap" fxLayoutGap="16px" fxLayoutAlign="flex-start">
+      
+        <div fxFlex="0 1 calc(50% - 25px)" style="height:400px;min-width: 200px;">
+
+            <mat-card>
+              <mat-card-content >
+                <p class="pfont">ICT Academy of Kerala (ICTAK) is a social enterprise officially launched on the 24th of June, 2014. 
+                  The organization had a humble beginning providing skill training programs to selected academic institutions.
+                  Over the years, ICTAK has grown to a prime service provider of all ICT and innovation-related training and capacity-building programs in the state.
+              
+                </p>
+            </mat-card-content>
+          </mat-card>
+      
+
+        </div>
+      <div  fxFlex="0 1 calc(50% - 25px)" style="height:400px;min-width: 200px;">
+
+          <mat-card style="background-image: url('../../assets/images/PHOTO_ICTAK-Reception.jpg');background-size: contain;background-repeat: no-repeat;height: 400px;">
+            <mat-card-content>
+              
+            </mat-card-content>
+          </mat-card>
+
+      </div>
+      
+  </div>
+
+<br>
+
+  <div style="max-height: 200px;background-color: cadetblue;">
+    <mat-carousel
+    [timings]="timings"
+    [autoplay]="autoplay"
+    [interval]="interval"
+    [loop]="loop"
+    [hideArrows]="hideArrows"
+    [hideIndicators]="hideIndicators"
+    [color]="color"
+    [lazyLoad]="true"
+    [maxWidth]="maxWidth"
+    [useKeyboard]="useKeyboard"
+    [useMouseWheel]="useMouseWheel"
+    [orientation]="orientation"
+    [slides]="slides"
+    [maintainAspectRatio]="maintainAspectRatio"
+    [slideHeight]="slideHeight"
+    >
+      <mat-carousel-slide>
+        <br>
+        <div class="carousel_head">
+            Vision & Values
+        </div>        
+        <br>
+        <div class="carousel_div">
+          <p>
+            "To emerge as the single-point establishment for all the ICT related capability building in the state."
+          </p>
+        </div>
+      </mat-carousel-slide>
+      <mat-carousel-slide>
+        <br>
+          <div class="carousel_head">
+            Academic Operations
+          </div>        
+          <br>
+          <div class="carousel_div">
+              <p>
+                Connecting the academic institutions across Kerala and neighboring states, the Academic Operations Unit (AOU) of ICT Academy of Kerala is committed to the quality improvement in education and in imparting novel technical skills for employability and entrepreneurship for students. The team, with their continual interactions, research, design, and execution of various skill development programmes for faculties and students, accelerates our mission - “Bridging the Skill Gap”.
+              </p>
+          </div>
+        
+      </mat-carousel-slide>
+      <mat-carousel-slide>
+        <br>
+          <div class="carousel_head">
+              Corporate Operations
+          </div>        
+          <br>
+          <div class="carousel_div">
+              <p>
+                ICT Academy of Kerala envisions an empowered job force from the multifaceted skilling programmes we deliver. Being an important beneficiary and partner, corporate stakeholders have a key role from sponsorship, mentoring and providing opportunities, like internship and employment to the candidates. The Corporate Operating Unit (COU) of ICTAK manages the relationship with the partners and corporate stakeholders.
+              </p>
+          </div>
+      </mat-carousel-slide>
+
+
+      <mat-carousel-slide>
+        <br>
+          <div class="carousel_head">
+              Government Operations
+          </div>        
+          <br>
+          <div class="carousel_div">
+              <p>
+                The Government Operations Unit (GOU) of ICT Academy of Kerala deals with government-initiated projects. With strong academic and industrial connections across the country, the team can serve on multiple fronts and has the flexibility to meet the changing needs in the public sector. The unit focuses on ICT capability building for different projects initiated by the government departments. The GOU, as a whole, works in a self-driven, dynamic, and goal-oriented manner focusing on socially relevant government projects.
+              </p>
+          </div>
+      </mat-carousel-slide> 
+      
+      
+      <mat-carousel-slide>
+        <br>
+          <div class="carousel_head">
+              IT Solutions
+          </div>        
+          <br>
+          <div class="carousel_div">
+              <p>
+                What’s modern and inventive nowadays will be considered fundamental tomorrow. That’s why brands have to contribute to ICT enabled solutions to engage clients. The team of UI/UX experts, full-stack developers, RPA experts and data analysts at ICTAK Solutions are here to help you rejuvenate your brand’s digital presence.
+              </p>
+          </div>
+      </mat-carousel-slide> 
+
+      <mat-carousel-slide>
+        <br>
+          <div class="carousel_head">
+              Knowledge Office
+          </div>        
+          <br>
+          <div class="carousel_div">
+              <p>
+                  The Educator's team, which delivers competency-based curriculum and industry relevant content for various skill-training programs of ICT Academy of Kerala (ICTAK).The team is in charge of curriculum design ,technical content creation and course delivery.Knowledge office work in collaboration with other operating units, as a delivery team in areas of skill development programmes and projects.The team have the support of Industry and Technology partners for creating industry relevant curriculum and contents.
+              </p>
+          </div>
+      </mat-carousel-slide> 
+
+    </mat-carousel>
+
+  </div>
+
+</div>
