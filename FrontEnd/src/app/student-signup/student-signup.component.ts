@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { StudentService } from '../services/student.service';
 import { Router } from '@angular/router';
+import { Student } from '../models/student.model';
+import { StudentService } from '../service/student.service';
 
 @Component({
   selector: 'app-student-signup',
@@ -9,23 +10,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./student-signup.component.css']
 })
 export class StudentSignupComponent implements OnInit {
+  student!: Student;
 
-
-
-  constructor(private router:Router,public studentService:StudentService) { }
+  constructor(private router:Router,public studService:StudentService) { }
   pattern:any
 
   showSucessMessage!: boolean;
   serverErrorMessages!: string;
   emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-
   ngOnInit(): void {
   }
 
-
   resetForm(form: NgForm) {
-        this.studentService.selectedStudent = {
+        this.studService.selectedStudent = {
         StudentName: '',
         Email: '',
         Password: '',     
@@ -35,7 +33,7 @@ export class StudentSignupComponent implements OnInit {
   }
   
   onSubmit(form : NgForm){
-      this.studentService.signupStudent(form.value)
+      this.studService.signupStudent(form.value)
       .subscribe(
         res=>{
           this.showSucessMessage=true
@@ -47,6 +45,9 @@ export class StudentSignupComponent implements OnInit {
         },
         err=>{
           if (err.status === 422) {
+            let divid=document.getElementById('errdiv');
+            if (divid!=null)
+              divid.hidden=false
             this.serverErrorMessages = err.error;
           }
           else
@@ -54,7 +55,16 @@ export class StudentSignupComponent implements OnInit {
 
         }
       )
-      // this.router.navigate(['/studentLogin']); 
+ 
+ 
+      
+  //     this.router.navigate(['/studentLogin']); 
+  }
+
+  onFocus(){
+    let divid=document.getElementById('errdiv');
+    if (divid!=null)
+      divid.hidden=true
   }
 
 }

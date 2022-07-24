@@ -1,0 +1,39 @@
+<mat-toolbar class="mat_toolbar">
+    <mat-toolbar-row>
+       
+        <div class="logo" style="line-height: 70px;text-transform: uppercase;">
+            <a routerLink="" style="color: #f5a425;font-style: normal;text-decoration: none;display: inline-block;"><em>ICTAK</em> Student Entrollment</a>
+          </div>
+        <span class="example-spacer"></span>
+        <span [style.cursor]="'pointer'" routerLink="/home">Home</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span [style.cursor]="'pointer'" routerLink="/courses">Courses</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span [style.cursor]="'pointer'" routerLink="/about">About</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span [style.cursor]="'pointer'" routerLink="/contactus">Contact</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" [style.cursor]="'pointer'" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Login
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" routerLink="/login">Admin</a></li>
+            <li><a class="dropdown-item" routerLink="/studentlogin">Student</a></li>
+            <li><a class="dropdown-item" routerLink="/employerlogin">Employer</a></li>
+          </ul>
+        </div>
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span [style.cursor]="'pointer'" routerLink="/registration">Register</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav  fixedTopGap="56">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/home">Home</a>
+        <a mat-list-item routerLink="/">Courses</a>
+        <a mat-list-item routerLink="/about">About</a>
+      </mat-nav-list>
+    </mat-sidenav>
+  </mat-sidenav-container>
