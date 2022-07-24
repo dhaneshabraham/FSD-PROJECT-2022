@@ -6,6 +6,9 @@ import { AboutComponent } from './about/about.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { LoginComponent } from './login/login.component';
 import { EmployerLoginComponent } from './employer-login/employer-login.component';
+import { StudentSignupComponent } from './student-signup/student-signup.component';
+import { StudentLoginComponent } from './student-login/student-login.component';
+
 const routes: Routes = [
   {path: "registration", component: EnrollmentformComponent} ,
   { path:'', component: HomeComponent },
@@ -14,7 +17,9 @@ const routes: Routes = [
   { path:'footer', component: FooterComponent },
   { path:'contactus', component: ContactusComponent },
   { path:'login', component: LoginComponent },
-  {path:'employerlogin', component: EmployerLoginComponent}
+  {path:'studentsignup',component:StudentSignupComponent},
+  {path:'studentlogin',component:StudentLoginComponent}
+
 ];
 
 @NgModule({
