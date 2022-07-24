@@ -8,3 +8,8 @@
 /* .example-card {
     max-width: 600px;
   } */
+
+.ng-star-inserted{
+    background-color: beige;
+    min-width: 320px;
+}

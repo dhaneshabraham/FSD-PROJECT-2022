@@ -23,7 +23,9 @@ import { FooterComponent } from './footer/footer.component';
 import { StudentSignupComponent } from './student-signup/student-signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StudentLoginComponent } from './student-login/student-login.component';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCarouselModule } from 'ng-mat-carousel';
 
 
 @NgModule({
@@ -53,7 +55,11 @@ import { StudentLoginComponent } from './student-login/student-login.component';
     MatBottomSheetModule,
     FormsModule,
     FlexLayoutModule,
-    HttpClientModule
+    MatFormFieldModule,
+    HttpClientModule,
+    MatInputModule,
+    MatCarouselModule.forRoot(),
+    MatCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
