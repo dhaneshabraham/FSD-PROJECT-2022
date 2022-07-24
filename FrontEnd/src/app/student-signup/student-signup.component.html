@@ -1,1 +1,48 @@
-<p>student-signup works!</p>
+<!-- new form -->
+<div class="row td">
+    <div class="col s8 offset-s2">
+      <div class="card">
+        <div class="sm-jumbotron center-align">
+          <h2>Student Registration</h2>
+        </div>
+        <form #studentRegistrationForm="ngForm" (ngSubmit)="studentRegistrationForm.valid && onSubmit(studentRegistrationForm)">
+            <input type="text" #StudentName="ngModel" [(ngModel)]="studentService.selectedStudent.StudentName" name="StudentName" placeholder="Full Name"
+            required  [ngClass]="{'invalid-textbox' :studentRegistrationForm.submitted && !StudentName.valid }">
+            <div *ngIf="studentRegistrationForm.submitted && !StudentName.valid">
+              <label class="validation-message">This field is required.</label>
+            </div>
+            <input type="text" #Email="ngModel" [(ngModel)]="studentService.selectedStudent.Email" name="Email" placeholder="Email"
+            required [pattern]="emailPattern"  [ngClass]="{'invalid-textbox' :studentRegistrationForm.submitted && !Email.valid }">
+            <div *ngIf="studentRegistrationForm.submitted && Email.errors">
+              <label *ngIf="Email.errors?.['required']" class="validation-message">This field is required.</label>
+              <label *ngIf="Email.errors?.['pattern']" class="validation-message">Invalid email address.</label>
+            </div>
+            <input type="password" #Password="ngModel" [(ngModel)]="studentService.selectedStudent.Password" name="Password" placeholder="Password"
+            minlength="4" required [ngClass]="{'invalid-textbox' :studentRegistrationForm.submitted && !Password.valid }">
+            <div *ngIf="studentRegistrationForm.submitted && Password.errors">
+              <label *ngIf="Password.errors?.['required']" class="validation-message">This field is required.</label>
+              <label *ngIf="Password.errors?.['minlength']" class="validation-message">Enter atleast 4 characters.</label>
+            </div>
+            <div class="sm-jumbotron center-align">
+              <button class="btn-large btn-submit" type="submit" value="Sign Up">Sign Up</button>
+              <div class="sp">
+                <span >Already have an account,</span>
+                <a href="/studentLogin">click here</a>
+
+              </div>
+              
+            </div>
+          </form>
+          
+        
+          <div class="success" *ngIf="showSucessMessage">
+            Saved successfully
+          </div>
+          
+      
+          <div class="alert" *ngIf="serverErrorMessages">
+            {{serverErrorMessages}}
+          </div>
+      </div>
+    </div>
+  </div> 
