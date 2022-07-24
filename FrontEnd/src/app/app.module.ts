@@ -3,10 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MatListModule } from '@angular/material/list';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { FormsModule } from '@angular/forms';
+import { MatCardModule} from '@angular/material/card';
+import { MatGridListModule} from '@angular/material/grid-list';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EnrollmentformComponent } from './enrollmentform/enrollmentform.component';
@@ -17,16 +20,15 @@ import { CoursesComponent } from './courses/courses.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { FooterComponent } from './footer/footer.component';
-<<<<<<< HEAD
 import { EmployerLoginComponent } from './employer-login/employer-login.component';
 import { ReactiveFormsModule } from '@angular/forms';
-=======
 import { StudentSignupComponent } from './student-signup/student-signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StudentLoginComponent } from './student-login/student-login.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCarouselModule } from 'ng-mat-carousel';
 
-
->>>>>>> 767dee6458d0c6858db1f8e7db23b243aa8c34ee
 
 @NgModule({
   declarations: [
@@ -48,15 +50,20 @@ import { StudentLoginComponent } from './student-login/student-login.component';
     MatToolbarModule,
     MatIconModule,
     MatSidenavModule,
+    MatCardModule,
     MatListModule,
+    MatGridListModule,
     BrowserAnimationsModule,
     MatBottomSheetModule,
-<<<<<<< HEAD
-    ReactiveFormsModule
-=======
+    ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
->>>>>>> 767dee6458d0c6858db1f8e7db23b243aa8c34ee
+    HttpClientModule,
+    FlexLayoutModule,
+    MatFormFieldModule,
+    HttpClientModule,
+    MatInputModule,
+    MatCarouselModule.forRoot(),
+    MatCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,15 @@
+.content{
+    padding:16px;
+}
+.content>mat-card{
+    width: 200px;
+    /* height: 500px; */
+}
+/* .example-card {
+    max-width: 600px;
+  } */
+
+.ng-star-inserted{
+    background-color: beige;
+    min-width: 320px;
+}
