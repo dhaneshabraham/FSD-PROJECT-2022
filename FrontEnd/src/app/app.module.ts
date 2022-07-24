@@ -18,6 +18,7 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { FooterComponent } from './footer/footer.component';
 import { EmployerLoginComponent } from './employer-login/employer-login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { EmployerLoginComponent } from './employer-login/employer-login.componen
     MatSidenavModule,
     MatListModule,
     BrowserAnimationsModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
