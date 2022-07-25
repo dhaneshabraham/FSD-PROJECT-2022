@@ -1,25 +1,38 @@
-<div class="login-form">    
-    <form action="/examples/actions/confirmation.php" method="post">
-		<div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
-    	<h4 class="modal-title">Employer Login</h4>
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Username" required="required">
+<div class="bg-image"></div>
+<div class="signin-form">   
+<form #employerLogin="ngForm" (ngSubmit)="employerLogin.valid && onSubmit(employerLogin)"> 
+    <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
+    <h4 class="modal-title">Employer Login</h4>
+        <input class="form-control" type="text" #Email="ngModel" [(ngModel)]="empService.selectedEmployer.Email" name="Email" placeholder="Email"
+        required [pattern]="emailPattern"  [ngClass]="{'invalid-textbox' :employerLogin.submitted && !Email.valid }" >
+        <div *ngIf="employerLogin.submitted && Email.errors">
+          <label *ngIf="Email.errors?.['required']" class="validation-message">This field is required.</label>
+          <label *ngIf="Email.errors?.['pattern']" class="validation-message">Invalid email address.</label>
         </div>
-        <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" required="required">
+        <input class="form-control" type="password" #Password="ngModel" [(ngModel)]="empService.selectedEmployer.Password" name="Password" placeholder="Password"
+        minlength="4" required [ngClass]="{'invalid-textbox' :employerLogin.submitted && !Password.valid }">
+        <div *ngIf="employerLogin.submitted && Password.errors">
+          <label *ngIf="Password.errors?.['required']" class="validation-message">This field is required.</label>
+          <label *ngIf="Password.errors?.['minlength']" class="validation-message">Enter atleast 4 characters.</label>
         </div>
-        <div class="form-group small clearfix">
-            <label class="checkbox-inline"><input type="checkbox"> Remember me</label>
-            <a href="#" class="forgot-link">Forgot Password?</a>
-        </div> 
-        <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">              
-    </form>			
-    <div class="text-center small">Don't have an account? <a href="#">Sign up</a></div>
-</div>
+
+ 
     
-  
-  
-  
-  
-  
+    <div class="form-group small clearfix">
+        <label class="checkbox-inline"><input type="checkbox"> Remember me</label>
+        <a href="#" class="forgot-link">Forgot Password?</a>
+    </div>
+    <div class="center-align">            
+        <button class="btn btn-primary btn-block btn-lg" value="Sign Up">Sign In</button>
+        <span >Don'nt have an account,</span>
+        <a href="/employersignup">click here</a>   
+    </div>
+    <div class="alert" *ngIf="serverErrorMessages" id="errdiv">
+        {{serverErrorMessages}}
+  </div>
+       
+
+</form>		
+    
+</div>
 

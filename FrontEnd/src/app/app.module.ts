@@ -20,6 +20,11 @@ import { FooterComponent } from './footer/footer.component';
 import { StudentSignupComponent } from './student-signup/student-signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StudentLoginComponent } from './student-login/student-login.component';
+import { StudentService } from './service/student.service';
+import { StudentProfileComponent } from './student-profile/student-profile.component';
+import { EmployerSignupComponent } from './employer-signup/employer-signup.component';
+import { EmployerLoginComponent } from './employer-login/employer-login.component';
+
 
 
 
@@ -35,7 +40,10 @@ import { StudentLoginComponent } from './student-login/student-login.component';
     HomeHeaderComponent,
     FooterComponent,
     StudentSignupComponent,
-    StudentLoginComponent
+    StudentLoginComponent,
+    StudentProfileComponent,
+    EmployerSignupComponent,
+    EmployerLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +57,7 @@ import { StudentLoginComponent } from './student-login/student-login.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [StudentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

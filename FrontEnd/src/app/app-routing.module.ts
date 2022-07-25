@@ -8,6 +8,8 @@ import { LoginComponent } from './login/login.component';
 import { EmployerLoginComponent } from './employer-login/employer-login.component';
 import { StudentSignupComponent } from './student-signup/student-signup.component';
 import { StudentLoginComponent } from './student-login/student-login.component';
+import { StudentProfileComponent } from './student-profile/student-profile.component';
+import { EmployerSignupComponent } from './employer-signup/employer-signup.component';
 
 const routes: Routes = [
   {path: "registration", component: EnrollmentformComponent} ,
@@ -18,7 +20,11 @@ const routes: Routes = [
   { path:'contactus', component: ContactusComponent },
   { path:'login', component: LoginComponent },
   {path:'studentsignup',component:StudentSignupComponent},
-  {path:'studentlogin',component:StudentLoginComponent}
+  {path:'studentlogin',component:StudentLoginComponent},
+  {path:'studentProfile',component:EnrollmentformComponent},
+  {path:'employerlogin',component:EmployerLoginComponent},
+  {path:'employersignup',component:EmployerSignupComponent}
+
 
 ];
 
