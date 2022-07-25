@@ -19,44 +19,44 @@
   <div class="title">
     Registration Form
   </div>
-  <form>
+  <form #studentReg='ngForm' enctype="multipart/form-data" [formGroup]="loginForm">
   <div class="form">
      <div class="inputfield" >
         <label>Name</label>
-        <input type="text"  class="input form-control" name="name" required>
+        <input type="text"  class="input form-control" formControlName='name' name="name" required>
      </div>  
 
       <div class="inputfield">
         <label>Email</label>
-        <input  type="email" class="input form-control" name="email">
+        <input  type="email" class="input form-control" formControlName='email' name="email">
        </div> 
        <div class="inputfield">
         <label></label>
-        <span style="color: red; margin-top: -2%;"></span>
+        <span style="color: red; margin-top: -2%;" *ngIf='email && email.invalid && email.touched '>Email is not valid</span>
        </div>
 
      <div class="inputfield">
         <label>Mobile No.</label>
-        <input type="tel" class="input form-control" name="phone">
+        <input type="tel" class="input form-control" formControlName='phone' name="phone">
      </div>  
      <div class="inputfield">
        <label></label>
-       <span style="color: red; margin-top: -2%;"></span>
+       <span style="color: red; margin-top: -2%;" *ngIf='phone && phone.invalid && phone.touched '>Enter valid mobile number</span>
       </div>
 
     <div class="inputfield">
         <label>Address</label>
-        <input type="text" class="input form-control" name="address" required>
+        <input type="text" class="input form-control"  formControlName='address' name="address" required>
         
      </div>
      <div class="inputfield">
        <label>District</label>
-       <input type="text" class="input form-control" name="district" required>
+       <input type="text" class="input form-control"  formControlName='district' name="district" required>
        
     </div> 
     <div class="inputfield">
        <label>State</label>
-       <input type="text" class="input form-control" name="state" required>
+       <input type="text" class="input form-control"  formControlName='state' name="state" required>
        
     </div>  
       
@@ -64,7 +64,7 @@
         <label>Qualification</label>
         <!-- <input type="text"  class="input form-control" formControlName='qualification' name="qualification" required> -->
         <div class="custom_select">
-          <select class="form-control" name="qualification" required>
+          <select class="form-control"  formControlName='qualification' name="qualification" required>
             <option value="">Select</option>
             <option value="Diploma">Diploma</option>
             <option value="B.Tech">B.Tech</option>
@@ -83,13 +83,13 @@
 
     <div class="inputfield">
         <label>Passout Year</label>
-        <input type="number" class="input form-control" name="passout" required>
+        <input type="number" class="input form-control"  formControlName='passout' name="passout" required>
      </div> 
 
      <div class="inputfield">
       <label>Course</label>
       <div class="custom_select">
-        <select class="form-control" name="course">
+        <select class="form-control"  formControlName='course' name="course">
           <option value="">Select</option>
           <option value="employee">Full Stack Web Development</option>
           <option value="student">Artificial Intelligence</option>
@@ -100,13 +100,13 @@
 
     <div class="inputfield">
         <label>Skills</label>
-        <input type="text" class="input form-control" name="skills" required>
+        <input type="text" class="input form-control"  formControlName='skills' name="skills" required>
      </div> 
 
      <div class="inputfield">
         <label>Employment Status</label>
         <div class="custom_select">
-          <select class="form-control" name="employmentStatus">
+          <select class="form-control"  formControlName='employmentStatus' name="employmentStatus">
             <option value="">Select</option>
             <option value="employee">Employee</option>
             <option value="student">Student</option>
@@ -117,26 +117,26 @@
 
     <div class="inputfield">
         <label>Technology Training</label>
-        <input type="text" class="input form-control" name="techtraining" required>
+        <input type="text" class="input form-control"  formControlName='techtraining' name="techtraining" required>
      </div> 
 
      <div class="inputfield">
       <label>ID</label>
-      <input disabled="disabled" type='text' class="input form-control"  name="ID" required>
+      <input type='text' class="input form-control"  formControlName='ID'  name="ID" required>
    </div>
 
    <div class="inputfield">
       <label>Course Fee</label>
-      <input disabled="disabled" type='text' class="input form-control"  name="coursefee" required>
+      <input type='text' class="input form-control"  formControlName='coursefee'  name="coursefee" required>
    </div>
 
    <div class="inputfield">
     <label for="file">Upload Photo</label>
-    <input type="file" class="input form-control" name="image" required>
+    <input type="file" class="input form-control"  formControlName='image' name="image" required>
  </div> 
      
     <div class="inputfield">
-       <button type="submit" class="btn btn-primary">Register</button>
+       <button type="submit" class="btn btn-primary"  [disabled]='studentReg.form.invalid && loginForm.invalid'>Register</button>
     </div>
   </div>
  </form>
