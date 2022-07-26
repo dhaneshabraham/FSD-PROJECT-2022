@@ -1,0 +1,14 @@
+.content{
+    
+    margin: 100px;
+
+}
+
+.mat-form-field{
+    display: inline !important;
+}
+
+.mat-card{
+    background-color: beige;
+    border-radius: 4px;
+}

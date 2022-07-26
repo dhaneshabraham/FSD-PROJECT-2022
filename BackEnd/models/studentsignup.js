@@ -11,24 +11,17 @@ var studentsSignupSchema = new Schema({
         unique:true
         },
     Password:String,
-    saltSecret:String
+    // saltSecret:String
 });
-studentsSignupSchema.pre('save',function(next){
-        bcrypt.genSalt(10,(err,salt)=>{
-            bcrypt.hash(this.Password,salt,(err,hash)=>{
-                this.Password=hash;
-                this.saltSecret=salt;
-                next();
-            })
-        })
-})
-//method for password verification
-studentsSignupSchema.methods.verifyPassword = function (password) {
-        return bcrypt.compareSync(password, this.password);
-    };
-    
-
-   
-     
+// studentsSignupSchema.pre('save',function(next){
+//         bcrypt.genSalt(10,(err,salt)=>{
+//             bcrypt.hash(this.Password,salt,(err,hash)=>{
+//                 this.Password=hash;
+//                 this.saltSecret=salt;
+//                 next();
+//             })
+//         })
+// })
 var studentSignup = mongoose.model('studentsignups', studentsSignupSchema);   
 module.exports = studentSignup;
+

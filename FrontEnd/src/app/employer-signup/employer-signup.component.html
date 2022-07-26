@@ -1,0 +1,41 @@
+<div class="bg-image"></div>
+<div class="signin-form">   
+<form #employerLogin="ngForm" (ngSubmit)="employerLogin.valid && onSubmit(employerLogin)"> 
+    <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
+    <h4 class="modal-title">Employer Registration</h4>
+    <input class="form-control" type="text" #CompanyName="ngModel" [(ngModel)]="empService.selectedEmployer.CompanyName" name="StudentName" placeholder="Company Name"
+        required  [ngClass]="{'invalid-textbox' :employerLogin.submitted && !CompanyName.valid }" (focus)="onFocus()">
+        <div *ngIf="employerLogin.submitted && !CompanyName.valid">
+          <label class="validation-message">This field is required.</label>
+        </div>
+        <input class="form-control" type="text" #Email="ngModel" [(ngModel)]="empService.selectedEmployer.Email" name="Email" placeholder="Email"
+        required [pattern]="emailPattern"  [ngClass]="{'invalid-textbox' :employerLogin.submitted && !Email.valid }" (focus)="onFocus()">
+        <div *ngIf="employerLogin.submitted && Email.errors">
+          <label *ngIf="Email.errors?.['required']" class="validation-message">This field is required.</label>
+          <label *ngIf="Email.errors?.['pattern']" class="validation-message">Invalid email address.</label>
+        </div>
+        <input class="form-control" type="password" #Password="ngModel" [(ngModel)]="empService.selectedEmployer.Password" name="Password" placeholder="Password"
+        minlength="4" required [ngClass]="{'invalid-textbox' :employerLogin.submitted && !Password.valid }" (focus)="onFocus()">
+        <div *ngIf="employerLogin.submitted && Password.errors">
+          <label *ngIf="Password.errors?.['required']" class="validation-message">This field is required.</label>
+          <label *ngIf="Password.errors?.['minlength']" class="validation-message">Enter atleast 4 characters.</label>
+        </div>
+        <div class="center-align">
+            <!-- <input type="submit" class="btn btn-primary btn-block btn-lg" value="Sign Up">               -->
+          <button class="btn btn-primary btn-block btn-lg" value="Sign Up">Sign Up</button>
+          <div class="sp">
+          <span >Already have an account,</span>
+          <a href="/employerlogin">click here</a>
+          <div class="success" *ngIf="showSucessMessage" >
+                Saved successfully
+          </div>
+          <div class="alert" *ngIf="serverErrorMessages" id="errdiv">
+                {{serverErrorMessages}}
+          </div>
+
+          
+   
+</div>
+    
+</div>
+

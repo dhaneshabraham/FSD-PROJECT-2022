@@ -1,0 +1,30 @@
+[
+    {
+        "name" : "Full Stack Development",
+        "fee" : 20000,
+        "duration" : "One Year",
+        "mode" : "Online",
+        "image" : "fullstack_devel.png"
+    },
+    {
+        "name" : "Database Management",
+        "fee" : 10000,
+        "duration" : "Six Months",
+        "mode" : "Offline",
+        "image" : "database_manage.jpg"
+    },
+    {
+        "name" : "Front End Development",
+        "fee" : 15000,
+        "duration" : "Six Months",
+        "mode" : "Online",
+        "image" : "front_end_devel.png"
+    },
+    {
+        "name" : "MERN Stack Development",
+        "fee" : 40000,
+        "duration" : "Six Months",
+        "mode" : "Online",
+        "image" : "mern_develop.jpg"
+    }
+]
