@@ -33,7 +33,7 @@ export class StudentSignupComponent implements OnInit {
   }
   
   onSubmit(form : NgForm){
-      this.studService. studentSignup(form.value)
+      this.studentService.studentSignup(form.value)
       .subscribe(
         ( res: any)=>{
           this.showSucessMessage=true

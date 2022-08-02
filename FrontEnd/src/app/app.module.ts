@@ -24,9 +24,14 @@ import { StudentSignupComponent } from './student-signup/student-signup.componen
 import { HttpClientModule } from '@angular/common/http';
 import { StudentLoginComponent } from './student-login/student-login.component';
 import { StudentService } from './service/student.service';
+import { EmployerService } from './service/employer.service';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { EmployerSignupComponent } from './employer-signup/employer-signup.component';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCarouselModule } from 'ng-mat-carousel';
+import { EmployerLoginComponent } from './employer-login/employer-login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -65,9 +70,10 @@ import { EmployerSignupComponent } from './employer-signup/employer-signup.compo
     HttpClientModule,
     MatInputModule,
     MatCarouselModule.forRoot(),
-    MatCarouselModule
+    MatCarouselModule,
+    ReactiveFormsModule
   ],
-  providers: [StudentService],
+  providers: [StudentService, EmployerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

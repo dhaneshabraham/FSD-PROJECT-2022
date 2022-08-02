@@ -27,7 +27,7 @@ export class EmployerLoginComponent implements OnInit {
         // localStorage.setItem('id',res.id)
         this.router.navigateByUrl('/studentProfile');
       },
-      err=>{
+      (err: { error: string; })=>{
         console.log(err);
         this.serverErrorMessages=err.error
       })     

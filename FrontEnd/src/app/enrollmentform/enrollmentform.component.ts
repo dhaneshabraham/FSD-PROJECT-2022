@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { FormGroup,FormControl,Validators} from '@angular/forms'
 
 
@@ -20,7 +18,8 @@ export class EnrollmentformComponent implements OnInit {
 
   courses=(this._id,this.name,this.details,this.price,this.eligibility)
   fees:any=''
-  constructor(private router:Router, public http:HttpClient) { }
+  constructor(private router:Router) { }
+  
   
   // formGroup 
   loginForm = new FormGroup({
