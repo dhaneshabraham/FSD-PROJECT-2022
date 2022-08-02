@@ -1,3 +1,4 @@
+
 import { Component,OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -10,10 +11,9 @@ import { StudentService } from '../service/student.service';
   styleUrls: ['./student-signup.component.css']
 })
 export class StudentSignupComponent implements OnInit {
+  
+  constructor(private router:Router,public studentService:StudentService) { }
   student!: Student;
-
-  constructor(private router:Router,public studService:StudentService) { }
-  pattern:any
 
   showSucessMessage!: boolean;
   serverErrorMessages!: string;
@@ -23,7 +23,7 @@ export class StudentSignupComponent implements OnInit {
   }
 
   resetForm(form: NgForm) {
-        this.studService.selectedStudent = {
+        this.studentService.selectedStudent = {
         StudentName: '',
         Email: '',
         Password: '',     
@@ -35,7 +35,7 @@ export class StudentSignupComponent implements OnInit {
   onSubmit(form : NgForm){
       this.studService. studentSignup(form.value)
       .subscribe(
-        res=>{
+        ( res: any)=>{
           this.showSucessMessage=true
           setTimeout(() => this.showSucessMessage = false, 1000);
           this.resetForm(form);
@@ -43,7 +43,7 @@ export class StudentSignupComponent implements OnInit {
           
           
         },
-        err=>{
+        ( err: { status: number; error: string; })=>{
           if (err.status === 422) {
             let divid=document.getElementById('errdiv');
             if (divid!=null)

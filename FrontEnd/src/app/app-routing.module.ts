@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EnrollmentformComponent } from './enrollmentform/enrollmentform.component';import { HomeComponent } from './home/home.component';
+import { EnrollmentformComponent } from './enrollmentform/enrollmentform.component';
+import { HomeComponent } from './home/home.component';
+import { StudentSigninComponent } from './student-signin/student-signin.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { ContactusComponent } from './contactus/contactus.component';
@@ -13,6 +15,9 @@ import { EmployerSignupComponent } from './employer-signup/employer-signup.compo
 
 import { CoursesComponent } from './courses/courses.component';
 const routes: Routes = [
+  {path:'',component:HomeComponent},
+  {path:'studentSignup',component:StudentSignupComponent},
+  {path:'studentSignin',component:StudentSigninComponent},
   { path: "registration", component: EnrollmentformComponent} ,
   { path:'', component: HomeComponent },
   { path:'home', component: HomeComponent },

@@ -20,8 +20,6 @@ import { CoursesComponent } from './courses/courses.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
 import { FooterComponent } from './footer/footer.component';
-import { EmployerLoginComponent } from './employer-login/employer-login.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { StudentSignupComponent } from './student-signup/student-signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StudentLoginComponent } from './student-login/student-login.component';
@@ -61,9 +59,7 @@ import { EmployerSignupComponent } from './employer-signup/employer-signup.compo
     MatGridListModule,
     BrowserAnimationsModule,
     MatBottomSheetModule,
-    ReactiveFormsModule,
     FormsModule,
-    HttpClientModule,
     FlexLayoutModule,
     MatFormFieldModule,
     HttpClientModule,
