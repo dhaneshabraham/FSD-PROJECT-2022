@@ -12,10 +12,15 @@ export class StudentService {
   };
   serverAddress= "http://localhost:3000";
   constructor(private http:HttpClient) { }
-  signupStudent(student: Student)
+  studentSignup(student: Student)
   {
+    console.log(student.Email)
     return this.http.post(`${this.serverAddress}/signupStudent`,student)
-    // .subscribe(data =>{console.log(data)})
+  }
+
+  studentsignin(student: Student)
+  {
+    return this.http.post(`${this.serverAddress}/signinStudent`,student)
   }
  
 }

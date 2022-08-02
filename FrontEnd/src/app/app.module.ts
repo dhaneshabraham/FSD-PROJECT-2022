@@ -23,9 +23,12 @@ import { FooterComponent } from './footer/footer.component';
 import { StudentSignupComponent } from './student-signup/student-signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StudentLoginComponent } from './student-login/student-login.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatCarouselModule } from 'ng-mat-carousel';
+import { StudentService } from './service/student.service';
+import { StudentProfileComponent } from './student-profile/student-profile.component';
+import { EmployerSignupComponent } from './employer-signup/employer-signup.component';
+
+
+
 
 
 @NgModule({
@@ -40,7 +43,10 @@ import { MatCarouselModule } from 'ng-mat-carousel';
     HomeHeaderComponent,
     FooterComponent,
     StudentSignupComponent,
-    StudentLoginComponent
+    StudentLoginComponent,
+    StudentProfileComponent,
+    EmployerSignupComponent,
+    EmployerLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +67,7 @@ import { MatCarouselModule } from 'ng-mat-carousel';
     MatCarouselModule.forRoot(),
     MatCarouselModule
   ],
-  providers: [],
+  providers: [StudentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

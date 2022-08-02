@@ -33,13 +33,13 @@ export class StudentSignupComponent implements OnInit {
   }
   
   onSubmit(form : NgForm){
-      this.studentService.signupStudent(form.value)
+      this.studService. studentSignup(form.value)
       .subscribe(
         ( res: any)=>{
           this.showSucessMessage=true
           setTimeout(() => this.showSucessMessage = false, 1000);
           this.resetForm(form);
-          setTimeout(() => this.router.navigate(['/studentLogin']), 500);
+          setTimeout(() => this.router.navigate(['/studentlogin']), 500);
           
           
         },
@@ -55,12 +55,12 @@ export class StudentSignupComponent implements OnInit {
 
         }
       )
- 
- 
-      
-  //     this.router.navigate(['/studentLogin']); 
+
   }
 
+
+
+  
   onFocus(){
     let divid=document.getElementById('errdiv');
     if (divid!=null)
