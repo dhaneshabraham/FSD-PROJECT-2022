@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StudAuthService } from '../service/stud-auth.service';
 import {MatBottomSheet, MatBottomSheetConfig} from '@angular/material/bottom-sheet';
 
 @Component({
@@ -8,9 +9,11 @@ import {MatBottomSheet, MatBottomSheetConfig} from '@angular/material/bottom-she
 })
 export class HomeHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public studAuthService : StudAuthService) { }
 
   ngOnInit(): void {
   }
+
+
 
 }

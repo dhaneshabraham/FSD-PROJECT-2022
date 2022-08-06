@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Course } from "../model/course";
+import { Component, Input, OnInit } from '@angular/core';
+import { Course } from "../models/course";
 import { HttpClient } from '@angular/common/http'; 
 import { Injectable } from "@angular/core";
 
@@ -11,19 +11,47 @@ import { Injectable } from "@angular/core";
 })
 export class CoursesComponent implements OnInit {
 
-  courseList: Course[] = [];
+  @Input()
+  courseList: Course[] = [];  
+
+  serverUrl : string = "http://localhost:3000/";
 
   constructor(private http: HttpClient) { }
 
 
   ngOnInit(): void {
 
-   this.http.get<Course>("../../assets/mock_data/courses.json").subscribe((data : any) => {
-      this.courseList = data;
-      console.log(this.courseList)
-   })
+   this.loadCourses();
 
     
+  }
+
+
+  loadCourses() : void{
+      this.http.get<Course>(this.serverUrl+"courses").subscribe((data : any) => {        
+        this.courseList = data;
+        console.log(this.courseList);        
+    })
+  }
+
+
+  deleteCourse(course_name: string) : void{
+      console.log(course_name);
+      if(confirm("Are you sure to delete "+course_name)) {
+        const options = {
+            body : {
+                courseName : course_name
+            }
+        }
+        this.http.delete(this.serverUrl+"courses", options).subscribe((data : any) => {        
+          console.log(data);
+          this.loadCourses();          
+      });
+    }
+  }
+
+  onCourseAdd(even: any) : void {
+      this.loadCourses();
   }
 
 }

@@ -6,6 +6,17 @@ const mongoose =require("./db.js");
 const session = require('express-session')
 const MongoStore = require('connect-mongo');
 const app=express();
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+app.use(express.static('public'))
+
+
+const formData = require('express-form-data');
+
+app.use(formData.parse());
+
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 const passport=require('passport')
 const { compareSync } = require('bcrypt');
 app.use(bodyParser.json());
@@ -64,7 +75,8 @@ app.post('/signinStudent',function(req, res, next){
     studentdata.findOne({Email:req.body.Email},(err,student)=>{
         console.log(student);
         if(student){
-            if (compareSync(req.body.Password, student.Password))
+            
+            if (String(req.body.Password) == String(student.Password))
             { 
                 console.log("student found");
                 res.send(req.body.StudentName)
@@ -90,21 +102,26 @@ app.post('/signinStudent',function(req, res, next){
 
 app.post('/signupEmployer',function(req,res){   
     var employer = {
-    CompanyName:req.body.CompanyName,  
-    Email:req.body.Email,
-    Password: hashSync(req.body.Password, 10)
-};    
-var employer = new Employer(employer);
-employer.save((err,doc)=>{
-if(!err)
-    res.send(doc);
-else
-{
-    if(err.code==11000)
-        res.status(422).send('Email already exist');
-    else
-        return next(err);
+        CompanyName:req.body.CompanyName,  
+        Email:req.body.Email,
+        Password: hashSync(req.body.Password, 10)
+    };    
+    var employer = new Employer(employer);
+    employer.save((err,doc)=>{
+        if(!err)
+            res.send(doc);
+        else
+        {
+            if(err.code==11000)
+                res.status(422).send('Email already exist');
+            else
+                return next(err);
 
-}
+        }
+    });
 });
-});
+
+
+require('./fileupload')(app);
+require('./courses')(app);
+require('./sendmail')(app);

@@ -32,7 +32,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCarouselModule } from 'ng-mat-carousel';
 import { EmployerLoginComponent } from './employer-login/employer-login.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { LogoutComponent } from './logout/logout.component';
+import { AddcourseComponent } from './addcourse/addcourse.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatButtonModule } from '@angular/material/button';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -51,7 +57,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     StudentLoginComponent,
     StudentProfileComponent,
     EmployerSignupComponent,
-    EmployerLoginComponent
+    EmployerLoginComponent,
+    LogoutComponent,
+    AddcourseComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +79,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatCarouselModule.forRoot(),
     MatCarouselModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatExpansionModule,
+    MatRadioModule,
+    MatButtonModule,
+    MatOptionModule,
+    MatSelectModule
   ],
   providers: [StudentService, EmployerService],
   bootstrap: [AppComponent]

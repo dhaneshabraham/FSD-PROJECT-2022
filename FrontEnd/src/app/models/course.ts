@@ -4,5 +4,5 @@ export interface Course {
     fee: number;
     duration: string;
     mode: string;
-    image: string;    
+    imageName: string;    
 }

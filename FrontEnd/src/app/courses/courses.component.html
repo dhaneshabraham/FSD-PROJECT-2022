@@ -1,11 +1,19 @@
 <app-home-header></app-home-header>
+
+<div style="padding:10px;">
+    <app-addcourse (courseAdded) = "onCourseAdd($event)" ></app-addcourse>
+</div>
+
+
 <div class="content">
     <div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start">
 
         <ng-container *ngFor="let course of courseList">
             <app-card fxFlex="0 1 calc(33.3% - 32px)" style="padding:20px;">                        
-                <mat-card class="mat=elevation-z4 example-card " style="border:1px solid forestgreen; border-radius: 15px;height:300px">
-                    <img mat-card-image src="./assets/images/{{course.image}}" style="height:200px">
+                <mat-card class="mat=elevation-z4 example-card " style="border:1px solid forestgreen; border-radius: 10px;height:300px;padding:0px 16px 16px 16px;">
+                    <button style="background: black; position: absolute; top: 4px; right: 4px; 
+                    border-radius: 40%; color: red; font-size: large;" (click)="deleteCourse(course.name)">x</button>
+                    <img mat-card-image src="{{serverUrl+'images/'+course.imageName}}" style="height:200px;border-radius:10px">
                     <mat-card-header>
                         <mat-card-title> {{course.name}} </mat-card-title>
                     </mat-card-header>                    
@@ -13,8 +21,8 @@
                         <button mat-flat-button style="background-color: khaki; margin:8px; border:1px solid yellow;">{{course.mode}}</button>
                         <button mat-flat-button style="background-color: khaki; margin:8px; border:1px solid yellow;">{{course.fee}}</button>
                         <button mat-flat-button style="background-color: khaki; margin:8px; border:1px solid yellow;">{{course.duration}}</button>
-                       
-                </mat-card-content>
+                        
+                     </mat-card-content>
                    
                 </mat-card>
 

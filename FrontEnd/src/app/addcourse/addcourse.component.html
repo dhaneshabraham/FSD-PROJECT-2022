@@ -1,0 +1,89 @@
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+         <b style="font-size: 2em;">Add Course</b> 
+      </mat-panel-title>
+      <!-- <mat-panel-description>
+        Type your name and age
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description> -->
+    </mat-expansion-panel-header>
+    <form (ngSubmit)="saveCourse()" #myForm="ngForm">
+        <div class="container addcoursediv" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="5%" fxLayoutAlign="center">
+        <div fxFlex="33.3%">
+            <mat-form-field appearance="fill">
+                <mat-label>Course Name</mat-label>
+                <input matInput  [(ngModel)]="courseName" required name="courseName">
+            </mat-form-field>
+        </div>
+        <div fxFlex="33.3%">
+            <mat-form-field appearance="fill">
+                <mat-label>Fee</mat-label>
+                <input matInput type="number"  [(ngModel)]="courseFee" required name="courseFee">
+              </mat-form-field>
+        </div>
+        <div fxFlex="33.3%">
+            <mat-form-field appearance="fill">
+                <mat-label>Duration</mat-label>
+                <mat-select  required  name="courseDuration" [(ngModel)]="courseDuration">
+                    <mat-option value="Six Months">Six Months</mat-option>
+                    <mat-option value="One Year">One Year</mat-option>
+                    <mat-option value="Two Years">Two Years</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>        
+        </div>
+        <div class="container addcoursediv" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="5%" fxLayoutAlign="center">
+        <div fxFlex="33.3%">
+            <mat-form-field appearance="fill">
+                <mat-label>Mode</mat-label>
+                <mat-select required name="courseMode" [(ngModel)]="courseMode">
+                    <mat-option value="Offline">Offline</mat-option>
+                    <mat-option value="Online">Online</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div fxFlex="33.3%">            
+            <mat-label>Image</mat-label>
+            <input type="file" (change)="uploadFile($event)" id="imageComp" required>
+        </div>
+        <div fxFlex="33.3%">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!myForm.form.valid">Save</button>
+        </div>
+        </div>
+    </form>
+  </mat-expansion-panel>
+
+
+
+
+<!-- <div style="width:100%;height:100vh;background-color: coral;"> -->
+    
+    <!-- <div class="card" style="left:50px;top:50px;width:800px;">
+        <form (ngSubmit)="newcourse()">
+            <div class="card-header">
+                <b>{{title}}</b>
+            </div>
+            <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>Course Name</td>
+                            <td><input type="number" name="b_id" [(ngModel)]='courseitem.coursename'></td>
+                        </tr>
+                       
+                       
+                      
+                        <tr>
+                           <td><input type="submit" class="btn btn-primary" value="Submit"></td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </form>
+    </div>
+    </div> -->

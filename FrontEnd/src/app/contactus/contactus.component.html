@@ -3,28 +3,28 @@
 <div class="content">
     <mat-card>
         <mat-card-content>
-    <form>
+    <form (ngSubmit)="sendMail()" #contactForm="ngForm">
       <mat-form-field>
-        <input matInput placeholder="Name" required>
+        <input matInput placeholder="Name" [(ngModel)]="contactName" name="contactName" required>
         <mat-icon matSuffix>person</mat-icon>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Enter your email" required>
+        <input type="email" matInput placeholder="Enter your email" [(ngModel)]="contactEmail"  name="contactEmail" required>
         <mat-icon matSuffix>drafts</mat-icon>
       </mat-form-field>
       <mat-form-field>
-        <input type="tel" matInput placeholder="Telephone" required>
+        <input type="number" matInput placeholder="Telephone" [(ngModel)]="contactTelephone" name="contactTelephone"  required>
         <mat-icon matSuffix>call</mat-icon>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Subject" required>
+        <input matInput placeholder="Subject" [(ngModel)]="contactSubject" name="contactSubject" required>
         <mat-icon matSuffix>create</mat-icon>
       </mat-form-field>
       <mat-form-field>
-        <textarea matInput placeholder="Textarea" required></textarea>
+        <textarea matInput placeholder="Textarea" [(ngModel)]="contactContent" name="contactContent" required></textarea>
         <mat-icon matSuffix>save</mat-icon>
       </mat-form-field>
-      <button mat-raised-button class="btn-custom">Send Now<i class="material-icons">
+      <button mat-raised-button class="btn-custom" [disabled]="!contactForm.form.valid">Send Now<i class="material-icons">
           send
         </i></button>
     </form>

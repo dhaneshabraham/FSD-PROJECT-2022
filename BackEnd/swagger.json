@@ -1,0 +1,39 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "FSD Project API",
+      "description": "",
+      "version": "1.0"
+    },
+    "produces": ["application/json"],
+    "paths": {
+      "/uploadCourseImage": {
+        "post": {
+          "x-swagger-router-controller": "home",
+          "operationId": "index",
+          "tags": ["/test"],
+          "description": "upload file",
+          "parameters": [           
+            { "name": "file", "in": "formData", "type": "file", "required": "true" }
+        ],
+          "responses": {}
+        }
+      },
+      "/courses": {
+        "post": {
+          "x-swagger-router-controller": "home",
+          "operationId": "addCourse",
+          "tags": ["/test"],
+          "description": "save course detail",
+          "parameters": [           
+            { "name": "courseName", "in": "formData", "type": "string", "required": "true" },
+            { "name": "courseFee", "in": "formData", "type": "string", "required": "true" },
+            { "name": "courseDuration", "in": "formData", "type": "string", "required": "true" },
+            { "name": "courseMode", "in": "formData", "type": "string", "required": "true" },
+            { "name": "courseImage", "in": "formData", "type": "string", "required": "true" }
+        ],
+          "responses": {}
+        }
+      }
+    }
+}

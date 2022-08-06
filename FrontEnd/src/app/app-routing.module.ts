@@ -7,6 +7,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 import { EmployerLoginComponent } from './employer-login/employer-login.component';
 import { StudentSignupComponent } from './student-signup/student-signup.component';
 import { StudentLoginComponent } from './student-login/student-login.component';
@@ -27,7 +28,10 @@ const routes: Routes = [
   { path:'studentlogin',component:StudentLoginComponent},
   { path:'employerlogin',component:EmployerLoginComponent},
   { path:'employersignup',component:EmployerSignupComponent},
-  { path:'courses',component:CoursesComponent}
+  { path:'courses',component:CoursesComponent},
+  { path:'logout',component:LogoutComponent}, 
+  { path:'studentProfile',component:StudentProfileComponent}
+
 
 ];
 
