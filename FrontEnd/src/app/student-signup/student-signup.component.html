@@ -1,48 +1,77 @@
-<!-- new form -->
-<div class="row td">
-    <div class="col s8 offset-s2">
-      <div class="card">
-        <div class="sm-jumbotron center-align">
-          <h2>Student Registration</h2>
-        </div>
-        <form #studentRegistrationForm="ngForm" (ngSubmit)="studentRegistrationForm.valid && onSubmit(studentRegistrationForm)">
-            <input type="text" #StudentName="ngModel" [(ngModel)]="studentService.selectedStudent.StudentName" name="StudentName" placeholder="Full Name"
-            required  [ngClass]="{'invalid-textbox' :studentRegistrationForm.submitted && !StudentName.valid }">
-            <div *ngIf="studentRegistrationForm.submitted && !StudentName.valid">
-              <label class="validation-message">This field is required.</label>
-            </div>
-            <input type="text" #Email="ngModel" [(ngModel)]="studentService.selectedStudent.Email" name="Email" placeholder="Email"
-            required [pattern]="emailPattern"  [ngClass]="{'invalid-textbox' :studentRegistrationForm.submitted && !Email.valid }">
-            <div *ngIf="studentRegistrationForm.submitted && Email.errors">
-              <label *ngIf="Email.errors?.['required']" class="validation-message">This field is required.</label>
-              <label *ngIf="Email.errors?.['pattern']" class="validation-message">Invalid email address.</label>
-            </div>
-            <input type="password" #Password="ngModel" [(ngModel)]="studentService.selectedStudent.Password" name="Password" placeholder="Password"
-            minlength="4" required [ngClass]="{'invalid-textbox' :studentRegistrationForm.submitted && !Password.valid }">
-            <div *ngIf="studentRegistrationForm.submitted && Password.errors">
-              <label *ngIf="Password.errors?.['required']" class="validation-message">This field is required.</label>
-              <label *ngIf="Password.errors?.['minlength']" class="validation-message">Enter atleast 4 characters.</label>
-            </div>
-            <div class="sm-jumbotron center-align">
-              <button class="btn-large btn-submit" type="submit" value="Sign Up">Sign Up</button>
-              <div class="sp">
-                <span >Already have an account,</span>
-                <a href="/studentLogin">click here</a>
-
-              </div>
-              
-            </div>
-          </form>
-          
+<header class="p-3 text-bg-dark">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-left justify-content-center justify-content-lg-start">
+      <span class="fs-4">ICT Student Enrollment System</span>
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+        <svg class="bi me-2" width="60" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
         
-          <div class="success" *ngIf="showSucessMessage">
-            Saved successfully
-          </div>
-          
-      
-          <div class="alert" *ngIf="serverErrorMessages">
-            {{serverErrorMessages}}
-          </div>
+      </a>
+  
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+        <li><a routerLink="/courses" class="nav-link px-2 text-white">Courses</a></li>
+        <li><a href="/features" class="nav-link px-2 text-white">Features</a></li>
+        <li><a href="/aboutus" class="nav-link px-2 text-white">About us</a></li>
+      </ul>
+      <div class="text-end">
+        <button type="button" class="btn btn-warning"[routerLink]="['/studentsignin']">Sign-in</button>
       </div>
     </div>
-  </div> 
+  </div>
+</header>
+
+
+
+
+<section class="section-login">
+ 
+  <div class="container">
+    <div class="form-container">
+
+      <form class="form" #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
+        <h1 class="sg">SIGN UP</h1>
+        <div class="form-control">
+          <input type="text" class="input" #fullName="ngModel" [(ngModel)]="userService.selectedUser.fullName" name="fullName" placeholder="Full Name"
+          required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !fullName.valid }">
+          <div *ngIf="signUpForm.submitted && !fullName.valid">
+          <label class="validation-message">This field is required.</label>
+          </div>
+        </div>
+        <div class="form-control">
+          <input type="text" class="input" #email="ngModel" [(ngModel)]="userService.selectedUser.email" name="email" placeholder="Email"
+          required [pattern]="emailRegex"  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !email.valid }">
+          <div *ngIf="signUpForm.submitted && email.errors">
+          <label *ngIf="email.errors.required" class="validation-message">This field is required.</label>
+          <label *ngIf="email.errors.pattern" class="validation-message">Invalid email address.</label>
+          </div>
+        </div>
+        <div class="form-control">
+          <input type="password" class="input" #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password" placeholder="Password"
+          minlength="4" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !password.valid }">
+          <div *ngIf="signUpForm.submitted && password.errors">
+          <label *ngIf="password.errors.required" class="validation-message">This field is required.</label>
+          <label *ngIf="password.errors.minlength" class="validation-message">Enter atleast 4 characters.</label>
+          </div>
+        </div>
+        <div class="success" *ngIf="showSucessMessage">
+          Account Created Successfully
+        </div>   
+        <div class="alert" *ngIf="serverErrorMessages">
+          {{serverErrorMessages}}
+        </div>
+        <button class="btn btn-login">Sign-Up</button>
+      </form>
+
+      <div class="sign-up">
+        <div>
+          <h2 class="text">Already have an Account?</h2>
+        </div>        
+        <button class="btn btn-sign-up" [routerLink]="['/studentsignin']">Sign-in</button>
+       
+      </div>
+    </div>
+  </div>
+</section>
+
+
