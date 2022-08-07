@@ -12,6 +12,14 @@ import { HomeMainComponent } from './home-main/home-main.component';
 import { CoursesComponent } from './courses/courses.component';
 import { FeaturesComponent } from './features/features.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { AdminStudentComponent } from './admin-student/admin-student.component';
+import { AdminUpdatestudentComponent } from './admin-updatestudent/admin-updatestudent.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminhomeComponent } from './adminhome/adminhome.component';
+import { StudSearchComponent } from './stud-search/stud-search.component';
+import { EmployerComponent } from './employer/employer.component';
+import { EmployerloginComponent } from './employerlogin/employerlogin.component';
+import { EmployersignupComponent } from './employersignup/employersignup.component';
 
 
 export const appRoutes: Routes = [
@@ -28,6 +36,16 @@ export const appRoutes: Routes = [
               {path:'myhome',component:MyHomeStudComponent,canActivate:[AuthGuard]},
               {path:'myhomeprofile',component:MyHomeStudProfileComponent,canActivate:[AuthGuard]},
               {path:'myhomeedit',component:EditmyHomeStudComponent,canActivate:[AuthGuard]}]},
-    { path: 'enroll', component: StudentEnrollmentComponent,canActivate:[AuthGuard] }
+    { path: 'enroll', component: StudentEnrollmentComponent,canActivate:[AuthGuard] },
+    {path:'admin',component:AdminComponent,
+     children:[{path:'',component:AdminhomeComponent}]},
+    {path:'adminhome',component:AdminStudentComponent},
+    {path:'viewdetails',component:AdminUpdatestudentComponent},
+    {path:'searchstud',component:StudSearchComponent},
+    {path:'employer',component:EmployerloginComponent},
+    {path:'employersignin',component:EmployerloginComponent},
+    {path:'employersignup',component:EmployersignupComponent}
+               
+
    
 ];

@@ -24,7 +24,7 @@ export class StudentEnrollmentComponent implements OnInit {
   
   onLogout(){
     this.userService.deleteToken();
-    this.router.navigate(['/studentsignin']);
+    this.router.navigate(['/']);
   }
   onSubmit(form: NgForm) {     
     const model={

@@ -27,8 +27,22 @@ import { HomeMainComponent } from './home-main/home-main.component';
 import { CoursesComponent } from './courses/courses.component';
 import { FeaturesComponent } from './features/features.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
-
-
+import { AdminStudentComponent } from './admin-student/admin-student.component';
+import { AdminUpdatestudentComponent } from './admin-updatestudent/admin-updatestudent.component';
+import { Header2Component } from './header2/header2.component';
+import { Header3Component } from './header3/header3.component';
+import { AdminComponent } from './admin/admin.component';
+import { Adminheader2Component } from './adminheader2/adminheader2.component';
+import { Adminhome1Component } from './adminhome1/adminhome1.component';
+import { FooterComponent } from './footer/footer.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { AdminhomeComponent } from './adminhome/adminhome.component';
+import { EmployerComponent } from './employer/employer.component';
+import { StudSearchComponent } from './stud-search/stud-search.component';
+// import { NgxPaginationModule} from "ngx-pagination"
+import { Ng2SearchPipeModule} from "ng2-search-filter";
+import { EmployerloginComponent } from './employerlogin/employerlogin.component';
+import { EmployersignupComponent } from './employersignup/employersignup.component'
 
 @NgModule({
   declarations: [
@@ -44,13 +58,27 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     HomeMainComponent,
     CoursesComponent,
     FeaturesComponent,
-    AboutusComponent
+    AboutusComponent,
+    AdminStudentComponent,
+    AdminUpdatestudentComponent,
+    Header2Component,
+    Header3Component,
+    AdminComponent,
+    Adminheader2Component,
+    Adminhome1Component,
+    FooterComponent,
+    AdminloginComponent,
+    AdminhomeComponent,
+    EmployerComponent,
+    StudSearchComponent,
+    EmployerloginComponent,
+    EmployersignupComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,Ng2SearchPipeModule
     
   ],
   providers: [{

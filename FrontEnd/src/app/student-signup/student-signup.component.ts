@@ -25,7 +25,6 @@ export class StudentSignupComponent implements OnInit {
       res => {
         this.showSucessMessage = true;
         setTimeout(() => this.showSucessMessage = false, 12000);
-        this.successLogin()
         this.resetForm(form);
         this.router.navigate(['/studentsignin']);
       },
@@ -38,10 +37,7 @@ export class StudentSignupComponent implements OnInit {
       }
     );
   }
-successLogin() 
-{
-  // Swal.fire('Account created succesfully!', 'success');
-}
+
   resetForm(form: NgForm) {
     this.userService.selectedUser = {
     fullName: '',

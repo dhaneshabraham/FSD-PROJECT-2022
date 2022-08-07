@@ -3,11 +3,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { environment } from '../../environments/environment';
 import { User } from './user.model';
-
+import { Employer } from './employer.model';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  selectedEmployer:Employer={
+    fullName: '',
+    email: '',
+    password: ''
+  }
   selectedUser: User = {
     fullName: '',
     email: '',
@@ -35,6 +40,10 @@ export class UserService {
   postUser(user: User){
     return this.http.post(environment.apiBaseUrl+'/register',user,this.noAuthHeader);
   }
+  postEmployer(user: User){
+    console.log(user)
+    return this.http.post(environment.apiBaseUrl+'/empregister',user,this.noAuthHeader);
+  }
 
   login(authCredentials) {
     return this.http.post(environment.apiBaseUrl + '/authenticate', authCredentials,this.noAuthHeader);
@@ -43,6 +52,34 @@ export class UserService {
   getUserProfile() {
     return this.http.get(environment.apiBaseUrl + '/userProfile');
   }
+  getStudent(id:any){
+
+return this.http.get(environment.apiBaseUrl + '/student/'+id);
+}
+
+
+
+
+  getStudents() {
+    return this.http.get(environment.apiBaseUrl + '/students');
+  }
+
+
+  updateStudent(student:any){
+    console.log('studentservice-L33', student);
+    return this.http.put(environment.apiBaseUrl + '/update-student',{student})
+    .subscribe(data=> {console.log('l34kkhchxklh',data)})       
+  }
+  
+  approveStudent(id:any){
+    return this.http.post(environment.apiBaseUrl + '/approve-student',{"id":id})
+  }
+
+  removestudent(id:any){
+    console.log(id);
+    return this.http.delete(environment.apiBaseUrl + '/delete/'+id);
+  }
+
 
 
   //Helper Methods
