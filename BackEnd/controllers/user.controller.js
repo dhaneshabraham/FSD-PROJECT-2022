@@ -3,7 +3,7 @@ const passport = require('passport');
 const _ = require('lodash');
 
 const User = mongoose.model('User');
-
+const Employer = mongoose.model('Employer');
 module.exports.register = (req, res, next) => {
     var user = new User();
     user.fullName = req.body.fullName;
@@ -21,8 +21,38 @@ module.exports.register = (req, res, next) => {
 
     });
 }
+// employerRegister
+module.exports.empregister = (req, res, next) => {
+    console.log('emp registration')
+    var user = new Employer();
+    user.fullName = req.body.fullName;
+    user.email = req.body.email;
+    user.password = req.body.password;
+    user.save((err, doc) => {
+        if (!err)
+            res.send(doc);
+        else {
+            if (err.code == 11000)
+                res.status(422).send(['Duplicate email adrress found.']);
+            else
+                return next(err);
+        }
+
+    });
+}
 
 
+
+
+// students data for admin
+module.exports.gets =  (req, res)=> {
+     User.find()
+        .then((data)=> {
+          console.log(data);
+          res.send(data);
+        });
+    }
+    
 
 
 

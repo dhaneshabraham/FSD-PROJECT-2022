@@ -1,16 +1,94 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+// const Employer=mongoose.model('Employer')
 const router = express.Router();
-
+const nodemailer=require('nodemailer')
 const ctrlUser = require('../controllers/user.controller');
 
 const jwtHelper = require('../config/jwtHelper');
 const { request } = require('express');
 
+router.post('/empregister', ctrlUser.empregister);
 router.post('/register', ctrlUser.register);
 router.post('/authenticate', ctrlUser.authenticate);
 router.get('/userProfile',jwtHelper.verifyJwtToken, ctrlUser.userProfile);
+router.get('/students',ctrlUser.gets)
+
+// get single student using _id
+router.get('/student/:id',function(req,res){  
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD"); 
+    console.log('single stud')
+    
+    let id=req.params.id;
+    console.log(id)
+    User.findOne({_id:id},function(err,student){ 
+        res.send(student)
+    })
+  });
+//delete  student by id
+router.delete('/delete/:id',(req,res)=>{  
+    id = req.params.id;
+    User.findByIdAndDelete({"_id":id})
+    .then(()=>{
+        console.log('Deleted successfully')
+        res.send();
+    })
+  });
+  
+// update student
+router.put('/update-student',(req,res)=>{
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD"); 
+    console.log(req.body)
+    let id=req.body.student._id
+    User.findByIdAndUpdate({"_id":id},
+    {
+        $set:{
+            fullName:req.body.student.fullName ,
+            email:req.body.student.email,
+            phone:req.body.student.phone,
+            address:req.body.student.address,
+            qualification:req.body.student.qualification,
+            passout:req.body.student.passout,
+            skills:req.body.student.skills,
+            employmentStatus:req.body.student.employmentStatus,
+            techtraining:req.body.student.techtraining,
+            course:req.body.student.course,
+            exitexammark:req.body.student.exitexammark
+            }
+    }) .then((data)=>{
+    console.log(data); 
+    res.send(data)
+  })
+  })
+  
+  //Approve student
+  
+  router.post('/approve-student',(req,res)=>{
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD");
+    User.updateOne(
+        { 
+            _id: req.body.id 
+        },
+        {
+            // $set: {'status': 'Approved'} 
+        }).then((data)=>{
+          User.findOne({_id:req.body.id},function(err,employee){ 
+              employeeMail(employee.email).then((response)=>{
+           console.log(response);
+                 res.send();
+                })
+            })
+        })
+      })
+  
+
+
+
+
 
 
 router.put('/enrollment/:id',(req, res, next) => {
@@ -42,6 +120,52 @@ var user={
             else { console.log('Error in Student Update :' + JSON.stringify(err, undefined, 2)); }
         });
 })
+
+
+//send mail function
+async function employeeMail(data){
+    try{
+        
+  const msg ={
+  
+    from : "ICT Academy Kerala <ptest5651@gmail.com>",
+  
+    to : data,
+    subject:"ICTAK enrolment Approval",
+    text : "Student Registration has been  successfully approved"
+  
+  };
+  
+  nodemailer.createTransport({
+  service: 'gmail',
+  auth :{
+    user : "ptest5651@gmail.com",
+    pass : "pcpdcpuhvokfbeuy"
+  },
+  pory:465,
+  host:'smtp.gmail.com'
+  
+  })
+  
+  .sendMail(msg,(err)=>{
+    if(err){
+        return console.log('error occurs',err)
+    }
+    else{
+        return console.log('emailsent')
+    }
+  }
+  
+  
+  )
+  
+  
+    }
+    catch(error){
+        return error
+    }
+  }
+
 
 
 module.exports = router;   
