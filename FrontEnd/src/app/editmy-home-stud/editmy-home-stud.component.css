@@ -67,3 +67,9 @@ body {
     right: 0;
     top: 0;
 }
+.user-logo img {
+    height: 100%;
+    width: 100%;
+    border: 1px double #1f1f1f;
+    border-radius: 50%;
+  }

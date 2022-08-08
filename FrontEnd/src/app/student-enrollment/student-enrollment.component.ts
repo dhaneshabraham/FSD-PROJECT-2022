@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../shared/user.service';
+import { FormGroup,FormControl,Validators} from '@angular/forms'
+import {  FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
+
 @Component({
   selector: 'app-student-enrollment',
   templateUrl: './student-enrollment.component.html',
@@ -9,6 +12,18 @@ import { UserService } from '../shared/user.service';
 })
 export class StudentEnrollmentComponent implements OnInit {
   userDetails
+
+
+
+
+
+
+
+
+
+
+
+  
   constructor(private userService:UserService,private router:Router) { }
 
   ngOnInit() {
@@ -21,13 +36,40 @@ export class StudentEnrollmentComponent implements OnInit {
         });
         
   }
+
+// image upload
+
+image
+
+  url: any; //Angular 11, for stricter type
+	msg = "";
+	//selectFile(event) { //Angular 8
+	selectFile(event: any) { //Angular 11, for stricter type
+		if(!event.target.files[0] || event.target.files[0].length == 0) {
+			this.msg = 'You must select an image';
+			return;
+		}
+		var mimeType = event.target.files[0].type;
+		var reader = new FileReader();
+		reader.readAsDataURL(event.target.files[0]);
+		reader.onload = (_event) => {
+			this.msg = "";
+			this.url = reader.result; 
+		}
+    
+	}
+
+
+
+
   
   onLogout(){
     this.userService.deleteToken();
     this.router.navigate(['/']);
   }
-  onSubmit(form: NgForm) {     
+  onSubmit(form: NgForm) {    
     const model={
+    
       fullName: this.userDetails.fullName,
       email:this.userDetails.email,
       phone:form.controls['phone'].value,
@@ -38,14 +80,15 @@ export class StudentEnrollmentComponent implements OnInit {
       employmentStatus:form.controls['employmentStatus'].value,
       techtraining:form.controls['techtraining'].value,
       course:form.controls['course'].value,
-      image:form.controls['image'].value,
+      image:this.url,
       exitexammark:0,
       status:2
       };
+
     this.userService.studEnrollment(this.userDetails._id,model).subscribe((data)=>{
       console.log(data)
       alert('data modified')
-      this.router.navigateByUrl('studentprofile');
+      this.router.navigate(['studentprofile']);
     })
   }
 }

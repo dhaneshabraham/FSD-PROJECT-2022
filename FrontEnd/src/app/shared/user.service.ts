@@ -57,6 +57,13 @@ export class UserService {
 return this.http.get(environment.apiBaseUrl + '/student/'+id);
 }
 
+getemployers(){
+  return this.http.get(environment.apiBaseUrl + '/employer');
+}
+removeemployer(id:any){
+  console.log(id);
+  return this.http.delete(environment.apiBaseUrl + '/employerdelete/'+id);
+}
 
 
 
@@ -115,7 +122,6 @@ return this.http.get(environment.apiBaseUrl + '/student/'+id);
   }
   studEnrollment(id:any,user:any)
   {
-    // return this.http.put(environment.apiBaseUrl + '/enrollment',user);
       return this.http.put(environment.apiBaseUrl + `/enrollment/${id}`,user);
 
   }

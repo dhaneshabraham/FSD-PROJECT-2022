@@ -1,11 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
-// const Employer=mongoose.model('Employer')
+const Employer=mongoose.model('Employer')
 const router = express.Router();
 const nodemailer=require('nodemailer')
 const ctrlUser = require('../controllers/user.controller');
-
+const upload=require('../config/upload')
 const jwtHelper = require('../config/jwtHelper');
 const { request } = require('express');
 
@@ -27,6 +27,28 @@ router.get('/student/:id',function(req,res){
         res.send(student)
     })
   });
+
+//get all employer
+router.get('/employer', (req, res)=> {
+    Employer.find()
+      .then((data)=> {
+        console.log(data);
+        res.send(data);
+      });
+  })
+
+//delete  employer by id
+router.delete('/employerdelete/:id',(req,res)=>{  
+    id = req.params.id;
+    Employer.findByIdAndDelete({"_id":id})
+    .then(()=>{
+        console.log('success')
+        res.send();
+    })
+  });
+
+
+
 //delete  student by id
 router.delete('/delete/:id',(req,res)=>{  
     id = req.params.id;
@@ -91,7 +113,7 @@ router.put('/update-student',(req,res)=>{
 
 
 
-router.put('/enrollment/:id',(req, res, next) => {
+router.put('/enrollment/:id',upload.single('image'),(req, res, next) => {
    
 var user={
         fullName : req.body.fullName,
@@ -105,12 +127,14 @@ var user={
         employmentStatus: req.body.employmentStatus,
         techtraining: req.body.techtraining,
         course:req.body.course,
-        image: req.body.image,
+        // image: req.body.image,
         exitexammark:req.body.exitexammark,
         status:req.body.status
 }
-    console.log(req.params.id)
-    console.log(user)
+   if(req.file){
+    User.image=req.file.path
+
+   }
     User.findByIdAndUpdate(req.params.id, { 
         $set: user },
         (err, doc) => {

@@ -63,7 +63,7 @@ export class EditmyHomeStudComponent implements OnInit {
     this.tt=(c==''?this.userDetails.techtraining:form.controls['techtraining'].value)
     c=form.controls['course'].value;
     this.cs=(c==''?this.userDetails.course:form.controls['course'].value)
-    c=form.controls['image'].value;
+  
     this.ig=(c==''?this.userDetails.image:form.controls['image'].value)
      
     const model={
@@ -77,19 +77,33 @@ export class EditmyHomeStudComponent implements OnInit {
       employmentStatus:this.es,
       techtraining:this.tt,
       course:this.cs,
-      image:this.ig,
+      // image:'https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png',
       exitexammark:this.userDetails.exitexammark,
       status:this.userDetails.status
       };
+// alert('edit')
     this.userService.studEnrollment(this.userDetails._id,model).subscribe((data)=>{
       console.log(data)
       alert('data modified')
       this.router.navigateByUrl('studentprofile');
     })
-
-
-
-
   }
+  // for image upload
+    
+  url: any; 
+	selectFile(event: any) { //Angular 11, for stricter type
+		if(!event.target.files[0] || event.target.files[0].length == 0) {
+			this.msg = 'You must select an image';
+			return;
+		}
+		var mimeType = event.target.files[0].type;
+		var reader = new FileReader();
+		reader.readAsDataURL(event.target.files[0]);
+		reader.onload = (_event) => {
+			this.msg = "";
+			this.url = reader.result; 
+		}
+    
+	}
 
 }

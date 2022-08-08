@@ -4,12 +4,26 @@
    
       <div class="col-md-3 border-right">
         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-          <div class="profile-img">
-            <img class="rounded-circle" width="150px" src="{{userDetails.image}}">
-            <div class="file btn btn-primary profile-button"> 
-              <input type="file" #image="ngModel" [(ngModel)]="userService.selectedUser.image" value="{{userDetails.image}}" name="image"/>Change Photo
-            </div>
+          <div class="up">
+            <div class="user-logo"><img [src]="url" *ngIf="url"></div>
           </div>
+          <div class="inputfield">
+            <label for="file">Upload Photo</label>
+            <input
+              type="file"
+              (change)="selectFile($event)"
+      
+              class="input form-control"
+              name="image"
+              required
+            /> 
+          </div>
+
+
+
+
+
+
           <div class="row mt-2">         
             <span class="font-weight-bold">{{userDetails.fullName}}</span>
             <span class="text-black-50">{{userDetails.email}}</span>   

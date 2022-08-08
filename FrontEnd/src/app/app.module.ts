@@ -42,7 +42,11 @@ import { StudSearchComponent } from './stud-search/stud-search.component';
 // import { NgxPaginationModule} from "ngx-pagination"
 import { Ng2SearchPipeModule} from "ng2-search-filter";
 import { EmployerloginComponent } from './employerlogin/employerlogin.component';
-import { EmployersignupComponent } from './employersignup/employersignup.component'
+import { EmployersignupComponent } from './employersignup/employersignup.component';
+import { AdminViewEmpComponent } from './admin-view-emp/admin-view-emp.component';
+import { FileSelectDirective } from 'ng2-file-upload';
+import { Adminheader3Component } from './adminheader3/adminheader3.component';
+
 
 @NgModule({
   declarations: [
@@ -72,7 +76,10 @@ import { EmployersignupComponent } from './employersignup/employersignup.compone
     EmployerComponent,
     StudSearchComponent,
     EmployerloginComponent,
-    EmployersignupComponent
+    EmployersignupComponent,
+    AdminViewEmpComponent,
+    FileSelectDirective,
+    Adminheader3Component
   ],
   imports: [
     BrowserModule,

@@ -20,6 +20,8 @@ import { StudSearchComponent } from './stud-search/stud-search.component';
 import { EmployerComponent } from './employer/employer.component';
 import { EmployerloginComponent } from './employerlogin/employerlogin.component';
 import { EmployersignupComponent } from './employersignup/employersignup.component';
+import { AdminViewEmpComponent } from './admin-view-emp/admin-view-emp.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
 
 
 export const appRoutes: Routes = [
@@ -38,13 +40,16 @@ export const appRoutes: Routes = [
               {path:'myhomeedit',component:EditmyHomeStudComponent,canActivate:[AuthGuard]}]},
     { path: 'enroll', component: StudentEnrollmentComponent,canActivate:[AuthGuard] },
     {path:'admin',component:AdminComponent,
-     children:[{path:'',component:AdminhomeComponent}]},
+     children:[{path:'',component:AdminloginComponent}]},
+    {path:'adminmenu',component:AdminhomeComponent},
+    
     {path:'adminhome',component:AdminStudentComponent},
     {path:'viewdetails',component:AdminUpdatestudentComponent},
     {path:'searchstud',component:StudSearchComponent},
     {path:'employer',component:EmployerloginComponent},
     {path:'employersignin',component:EmployerloginComponent},
-    {path:'employersignup',component:EmployersignupComponent}
+    {path:'employersignup',component:EmployersignupComponent},
+    {path:'viewemp',component:AdminViewEmpComponent}
                
 
    
